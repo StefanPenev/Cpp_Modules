@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:11:54 by stefan            #+#    #+#             */
-/*   Updated: 2025/03/12 17:15:20 by stefan           ###   ########.fr       */
+/*   Updated: 2025/05/02 01:10:22 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 public:
     ScavTrap(const std::string& name);
     ScavTrap(const ScavTrap& other);

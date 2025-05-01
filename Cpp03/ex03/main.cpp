@@ -6,13 +6,14 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 10:42:48 by stefan            #+#    #+#             */
-/*   Updated: 2025/03/12 17:27:38 by stefan           ###   ########.fr       */
+/*   Updated: 2025/05/02 01:06:18 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
     std::cout << "--- Creating ClapTrap ---" << std::endl;
@@ -40,6 +41,13 @@ int main() {
     frag.takeDamage(40);
     frag.beRepaired(20);
     frag.highFivesGuys();
+
+    std::cout << "\n--- Creating DiamondTrap ---" << std::endl;
+    DiamondTrap diamond("Diamondy");
+    diamond.attack("Target4");
+    diamond.takeDamage(20);
+    diamond.beRepaired(10);
+    diamond.whoAmI();
 
     std::cout << "\n--- End of Simulation ---" << std::endl;
     return 0;
