@@ -6,16 +6,16 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:05:12 by stefan            #+#    #+#             */
-/*   Updated: 2025/03/19 10:07:30 by stefan           ###   ########.fr       */
+/*   Updated: 2025/05/03 14:57:49 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
-#include <stdexcept>
 #include <string>
+#include <iostream>
+#include <exception>
 
 class Bureaucrat {
 private:
@@ -23,31 +23,28 @@ private:
     int grade;
 
 public:
-    // Exception classes
+    Bureaucrat(const std::string& name, int grade);
+    Bureaucrat(const Bureaucrat& other);
+    Bureaucrat& operator=(const Bureaucrat& other);
+    ~Bureaucrat();
+
+    const std::string& getName() const;
+    int getGrade() const;
+
+    void incrementGrade();
+    void decrementGrade();
+
     class GradeTooHighException : public std::exception {
     public:
-        const char* what() const throw();
+        virtual const char* what() const throw();
     };
 
     class GradeTooLowException : public std::exception {
     public:
-        const char* what() const throw();
+        virtual const char* what() const throw();
     };
-
-    // Constructor & Destructor
-    Bureaucrat(const std::string& name, int grade);
-    ~Bureaucrat();
-
-    // Getters
-    std::string getName() const;
-    int getGrade() const;
-
-    // Member functions
-    void incrementGrade();
-    void decrementGrade();
-
-    // Overloaded operator
-    friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif

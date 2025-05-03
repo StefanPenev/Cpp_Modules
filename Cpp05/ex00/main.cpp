@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:04:52 by stefan            #+#    #+#             */
-/*   Updated: 2025/03/19 10:04:54 by stefan           ###   ########.fr       */
+/*   Updated: 2025/05/03 14:58:28 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,33 @@
 
 int main() {
     try {
-        Bureaucrat bob("Bob", 2);
-        std::cout << bob << std::endl;
+        Bureaucrat a("Alice", 2);
+        std::cout << a << std::endl;
 
-        bob.incrementGrade();
-        std::cout << bob << std::endl;
+        a.incrementGrade();
+        std::cout << a << std::endl;
 
-        bob.incrementGrade();  // Should throw an exception
-    }
-    catch (const std::exception& e) {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+        a.incrementGrade(); // Should throw
+    } catch (std::exception& e) {
+        std::cout << "Exception: " << e.what() << std::endl;
     }
 
     try {
-        Bureaucrat alice("Alice", 150);
-        std::cout << alice << std::endl;
+        Bureaucrat b("Bob", 149);
+        std::cout << b << std::endl;
 
-        alice.decrementGrade();  // Should throw an exception
+        b.decrementGrade();
+        std::cout << b << std::endl;
+
+        b.decrementGrade(); // Should throw
+    } catch (std::exception& e) {
+        std::cout << "Exception: " << e.what() << std::endl;
     }
-    catch (const std::exception& e) {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+
+    try {
+        Bureaucrat c("Charlie", 0); // Should throw at construction
+    } catch (std::exception& e) {
+        std::cout << "Exception: " << e.what() << std::endl;
     }
 
     return 0;
