@@ -5,39 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 14:03:01 by stefan            #+#    #+#             */
-/*   Updated: 2025/05/04 14:03:58 by stefan           ###   ########.fr       */
+/*   Created: 2025/05/04 13:57:15 by stefan            #+#    #+#             */
+/*   Updated: 2025/05/04 13:57:16 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "Iter.hpp"
+#include "Whatever.hpp"
 
-template <typename T>
-void printElement(T &element) {
-    std::cout << element << std::endl;
-}
+int main(void) {
+    int a = 2;
+    int b = 3;
+    ::swap(a, b);
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+    std::cout << "min(a, b) = " << ::min(a, b) << std::endl;
+    std::cout << "max(a, b) = " << ::max(a, b) << std::endl;
 
-template <typename T>
-void increment(T &element) {
-    ++element;
-}
-
-int main() {
-    int intArr[] = {1, 2, 3, 4, 5};
-    std::string strArr[] = {"hello", "world", "iter", "template"};
-
-    std::cout << "Original int array:" << std::endl;
-    iter(intArr, 5, printElement);
-
-    iter(intArr, 5, increment);
-
-    std::cout << "Incremented int array:" << std::endl;
-    iter(intArr, 5, printElement);
-
-    std::cout << "String array:" << std::endl;
-    iter(strArr, 4, printElement);
+    std::string c = "chaine1";
+    std::string d = "chaine2";
+    ::swap(c, d);
+    std::cout << "c = " << c << ", d = " << d << std::endl;
+    std::cout << "min(c, d) = " << ::min(c, d) << std::endl;
+    std::cout << "max(c, d) = " << ::max(c, d) << std::endl;
 
     return 0;
 }
