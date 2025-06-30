@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 14:03:01 by stefan            #+#    #+#             */
-/*   Updated: 2025/05/04 14:03:58 by stefan           ###   ########.fr       */
+/*   Updated: 2025/06/30 12:15:11 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 
 template <typename T>
 void printElement(T &element) {
+    std::cout << element << std::endl;
+}
+
+template <typename T>
+void printConstElement(const T &element) {
     std::cout << element << std::endl;
 }
 
@@ -30,14 +35,27 @@ int main() {
 
     std::cout << "Original int array:" << std::endl;
     iter(intArr, 5, printElement);
+    std::cout << std::endl;
 
     iter(intArr, 5, increment);
 
     std::cout << "Incremented int array:" << std::endl;
     iter(intArr, 5, printElement);
+    std::cout << std::endl;
 
     std::cout << "String array:" << std::endl;
     iter(strArr, 4, printElement);
+    std::cout << std::endl;
+
+    const int constIntArr[] = {10, 20, 30};
+    std::cout << "Const int array:" << std::endl;
+    iter(constIntArr, 3, printConstElement);
+    std::cout << std::endl;
+
+    const double doubleArr[] = {3.14, 2.718, 1.618};
+    std::cout << "Const double array:" << std::endl;
+    iter(doubleArr, 3, printConstElement);
+    std::cout << std::endl;
 
     return 0;
 }
