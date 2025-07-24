@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.cpp                                    :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 11:41:31 by stefan            #+#    #+#             */
-/*   Updated: 2025/05/05 11:41:33 by stefan           ###   ########.fr       */
+/*   Updated: 2025/07/24 12:54:30 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,4 @@ public:
     const_reverse_iterator rend() const { return this->c.rend(); }
 };
 
-#endif // MUTANTSTACK_HPP
+#endif
