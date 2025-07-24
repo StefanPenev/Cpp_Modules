@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 14:09:11 by stefan            #+#    #+#             */
-/*   Updated: 2025/05/04 14:24:25 by stefan           ###   ########.fr       */
+/*   Updated: 2025/07/24 11:14:26 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <stdexcept>
 #include <cstddef>
-#include "Array.tpp"
 
 template <typename T>
 class Array {
@@ -35,5 +34,7 @@ private:
     T *data_;
     size_t size_;
 };
+
+#include "Array.tpp"
 
 #endif 

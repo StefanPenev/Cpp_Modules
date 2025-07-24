@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 14:10:01 by stefan            #+#    #+#             */
-/*   Updated: 2025/05/04 14:24:11 by stefan           ###   ########.fr       */
+/*   Updated: 2025/07/24 11:14:31 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ARRAY_TPP
 
 #include <iostream>
+#include "Array.hpp"
 
 template <typename T>
 Array<T>::Array() : data_(NULL), size_(0) {}
