@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cctype>
 #include <limits>
+#include <iomanip>
 
 BitcoinExchange::BitcoinExchange(const std::string& dbFile) {
     std::ifstream db(dbFile.c_str());
@@ -64,28 +65,42 @@ void BitcoinExchange::processInput(const std::string& inputFile) const {
             continue;
         }
         double rate = getRateForDate(date);
-        std::cout << date << " => " << valueStr << " = " << value * rate << std::endl;
+        std::cout << std::fixed << std::setprecision(2)
+                    << date << " => " << valueStr << " = " << value * rate << std::endl;
     }
 }
 
 bool BitcoinExchange::isValidDate(const std::string& date) {
     if (date.length() != 10 || date[4] != '-' || date[7] != '-')
         return false;
+
+    // Extract year, month, day
     int year = 0, month = 0, day = 0;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; ++i)
         if (!std::isdigit(date[i])) return false;
-        year = year * 10 + (date[i] - '0');
-    }
-    for (int i = 5; i < 7; ++i) {
+        else year = year * 10 + (date[i] - '0');
+
+    for (int i = 5; i < 7; ++i)
         if (!std::isdigit(date[i])) return false;
-        month = month * 10 + (date[i] - '0');
-    }
-    for (int i = 8; i < 10; ++i) {
+        else month = month * 10 + (date[i] - '0');
+
+    for (int i = 8; i < 10; ++i)
         if (!std::isdigit(date[i])) return false;
-        day = day * 10 + (date[i] - '0');
-    }
-    if (month < 1 || month > 12 || day < 1 || day > 31)
+        else day = day * 10 + (date[i] - '0');
+
+    if (month < 1 || month > 12)
         return false;
+
+    int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+    // Leap year check
+    bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+    if (isLeapYear && month == 2)
+        daysInMonth[1] = 29;
+
+    if (day < 1 || day > daysInMonth[month - 1])
+        return false;
+
     return true;
 }
 
